@@ -14,3 +14,23 @@ Some links:
   * Meteoswiss data page: http://www.meteosuisse.admin.ch/home/climat/passe.html
 
   * opendata.swiss page for meteo: https://opendata.swiss/en/organization/bundesamt-fur-meteorologie-und-klimatologie-meteoschweiz
+
+================================
+
+# Abstract
+
+
+
+# Data description
+
+
+
+# Feasibility and Risks
+
+
+
+# Deliverables
+
+
+
+# Timeplan
