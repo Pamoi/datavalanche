@@ -1,6 +1,6 @@
 # datavalanche
-Applied Data Analysis project
-The goal of the project is to cross avalanche data with meteorological data and see whether data confirms known models of
+
+The goal of this project is to cross avalanche data with meteorological data and see whether this data confirms known models of
 avalanche risk estimation. Once this analysis is performed the project will be continued by either providing some intuitive
 visualisation of the data for preventive and educational purpose or trying to apply machine learning technique in order to
 improve estimations of the avalanche risk.
