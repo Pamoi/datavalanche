@@ -26,7 +26,7 @@ with infrasonic sensor arrays_ http://ac.els-cdn.com/S0165232X14002419/1-s2.0-S0
 # Data description
 _(All the data mentionned in this section is referenced in the links above)_
   * Avalanche data from the Swiss Avalanche Foundation. Contains entries for every fatal avalanche in the last 20 years (359 avalanches). Contains the date, location, starting point, elevation, activity (e.g. off-piste skiing), victims, and danger-level that day.
-  * Meteorological data might be slightly harder: the HISTALP data looked promising, however Switzerland is not a part of it, and it's only monthly data anyways. The Meteoswiss website is very confusing. There is some stuff on opendata.swiss, which in the end links to this: http://data.geo.admin.ch/ which isn't the clearest organisation either. Maybe we should directly contact Meteoswiss?
+  * Meteorological data might be slightly harder: the HISTALP data looked promising, however Switzerland is not a part of it, and it's only monthly data anyways. The Meteoswiss website is very confusing. There is some stuff on opendata.swiss, which in the end links to this: http://data.geo.admin.ch/ which isn't the clearest organisation either. Maybe we should directly contact Meteoswiss? I found this: data.geo.admin.ch/ch.meteoschweiz.swissmetnet/VQHA69.csv it is the data from all the swiss stations at 15:50 today (at least when I checked). How do we get all the data?
 
 # Feasibility and Risks
 Really depends on our ability to get meteo data. I guess Meteoswiss might agree to collaborate? If that's not the case, then we might be at a dead end. 
