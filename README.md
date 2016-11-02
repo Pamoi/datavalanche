@@ -9,6 +9,8 @@ Some links:
   * HISTALP (meteoroligcal data for the greater alpine region): http://www.zamg.ac.at/histalp/
 
   * Meteoswiss data page: http://www.meteosuisse.admin.ch/home/climat/passe.html
+  
+  * ECMWF Meteo datasets: http://apps.ecmwf.int/datasets/
 
   * opendata.swiss page for meteo: https://opendata.swiss/en/organization/bundesamt-fur-meteorologie-und-klimatologie-meteoschweiz
 
