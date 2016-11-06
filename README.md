@@ -8,28 +8,29 @@ The next step would be to join this data with meteo data from the few days prece
 
 Once the data is collected and pre-processed the project could follow two directions:
 
-Apply machine learning techniques in order to improve avalanche risk prediction
-Build an interactive visualisation of our data to sensitize people to avalanche risk
-Data description
+- Apply machine learning techniques in order to improve avalanche risk prediction
+- Build an interactive visualisation of our data to sensitize people to avalanche risk
 
-(All the data mentioned in this section is referenced in the links above)
+## Data description
 
-Avalanche data from the Swiss Avalanche Foundation. Contains entries for every fatal avalanche in the last 20 years (359 avalanches). Contains the date, location, starting point, elevation, activity (e.g. off-piste skiing), victims, and danger-level that day.
-Avalanche data from data-avalanche.org
-Meteo data from ECMWF
-Meteorological data might be slightly harder: the HISTALP data looked promising, however Switzerland is not a part of it, and it's only monthly data anyway. The Meteoswiss website is very confusing. There is some stuff on opendata.swiss, which in the end links to this: http://data.geo.admin.ch/ which isn't the clearest organisation either. Maybe we should directly contact Meteoswiss? I found this: data.geo.admin.ch/ch.meteoschweiz.swissmetnet/VQHA69.csv it is the data from all the swiss stations at 15:50 today (at least when I checked). How do we get all the data?
-Feasibility and Risks
+Links to data sources are in the Links and references section.
 
-Meteo data seems a bit challenging to obtain and process. In case this part should not work we can still work on useful visualisation with the already available information such as location, altitude, orientation, avalanche risk, time of day, date. Moreover less fine grained data could be easier to find and process but only gives an estimation on the total amount of snow. Finally not using meteo data could allow us to use avalanche data from multiple sources as we will have more time to combine it.
+- The avalanche data from the Swiss Avalanche Foundation contains entries for every fatal avalanche in the last 20 years (359 avalanches). It contains the date, location, starting point, elevation, activity (e.g. off-piste skiing), victims, and danger-level that day.
+- There is also avalanche data from data-avalanche.org in a similar format.
+- Daily meteo data from ECMWF in GRIB format.
+- The might be some meteo data on http://data.geo.admin.ch/ but it is not very clear what is available. It may also be possble to obtain some data from MeteoSwiss.
+
+## Feasibility and Risks
+
+Meteo data seems a bit challenging to obtain and process. In case this part should not work we can still work on useful visualisation with the already available information such as location, altitude, orientation, avalanche risk, time of day, date. However the machine learning approach would be compromised as we cannot reliably predict avalanches without taking meteo into account. Nevertheless less fine grained data could be easier to find and process but would only give an estimation of the total amount of snow. Finally not using meteo data could allow us to use avalanche data from multiple sources as we will have more time to combine it.
 
 ## Deliverables
 
-At the end of the project, depending on the data that we manage to collect and also on the results that we will obtain, we will provide an interactive visualization of the results obtained.
-Different possibilities come to mind such as:
-- Visualization of most likely places to encounter avalanches  
-- Estimates of the accuracy of avalanches risks according to past data and meteorological conditions 
-- ...
-- ...
+Depending on the direction we take the project's outcome would take different shapes:
+
+- If we obtain substantial results with machine learning we will develop a simple web portal or mobile app where a user can enter terrain observations and get an estimation of the avalanche risk.
+
+- If going for a visualisation project the outcome would be a website presenting the various causes of avalanches illustrated by data visualisation to sensitize users to snow dangers.
 
 ## Timeplan
 
