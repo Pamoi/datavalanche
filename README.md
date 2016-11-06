@@ -36,15 +36,10 @@ Different possibilities come to mind such as:
 These are the main milestones that we want to achieve. 
 
 1) Gather meteorological data from ECMWF in regions of interests
-
 2) Gather avalanche data from  www.slf.ch
-
 3) Prepare and clean the data
-
 4) Explanatory data analysis
-
 5) Try some ML techniques to estimate avalanche risks (Might take a while)
-
 6) Once suitable results are obtained, we can start on the visualization task
 
 
