@@ -51,3 +51,45 @@ def CH1903toWGS1984(x, y):
   lng = CHtoWGSlng(x, y)
  
   return [lat, lng]
+
+def grib_to_dataframe(grbs, nbMessages=-1):
+    import pandas as pd
+    #number of messages
+    if(nbMessages < 0):
+        nbMessages = grbs.messages
+    #number of coordinate points
+    nbPoints = grbs[1].latlons()[0].size
+    searchingParameters = True
+    parameters = []
+    i = 1
+    while(searchingParameters):
+        #parameter of the current message
+        param = grbs[i]['parameterName']
+        #if don't already have it, add it to the list
+        searchingParameters = param not in parameters
+        if(searchingParameters):
+            parameters.append(param)
+        i += 1
+    nbParams = len(parameters)
+    #there is one row for each point in time and in space
+    nbRows = int(nbPoints*nbMessages/nbParams)
+    rows = range(0, nbRows)
+    columns = ["Date", "Latitude", "Longitude"] + parameters
+    #create an empty DataFrame
+    df = pd.DataFrame(columns=columns, index=rows)
+
+    latitudes = grbs[1].latlons()[0].flatten()
+    longitudes = grbs[1].latlons()[1].flatten()
+        
+    #fill the dataframe
+    for m in range(0, nbMessages):
+        message = grbs[m+1]
+        data = message.data()[0].flatten()
+        for p in range(0, nbPoints):
+            row = (m // nbParams)*nbPoints + p
+            if (m % nbParams == 0):
+                df.loc[row]['Date'] = message.validDate
+                df.loc[row]['Latitude'] = latitudes[p]
+                df.loc[row]['Longitude'] = longitudes[p]
+            df.loc[row][message['parameterName']] = data[p]
+    return df
