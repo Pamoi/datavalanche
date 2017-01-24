@@ -14,6 +14,6 @@ server.retrieve({
     "stream": "oper",
     "time": "00:00:00/12:00:00",
     "type": "fc",
-    "target": "davos.grb",
+    "target": "davos_data.grb",
 })
 
