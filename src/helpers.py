@@ -58,13 +58,13 @@ def grib_to_dataframe(grbs, nbMessages=-1):
     if(nbMessages < 0):
         nbMessages = grbs.messages
     #number of coordinate points
-    nbPoints = grbs[1].latlons()[0].size
+    nbPoints = grbs.message(1).latlons()[0].size
     searchingParameters = True
     parameters = []
     i = 1
     while(searchingParameters):
         #parameter of the current message
-        param = grbs[i]['parameterName']
+        param = grbs.message(i)['parameterName']
         #if don't already have it, add it to the list
         searchingParameters = param not in parameters
         if(searchingParameters):
@@ -78,12 +78,12 @@ def grib_to_dataframe(grbs, nbMessages=-1):
     #create an empty DataFrame
     df = pd.DataFrame(columns=columns, index=rows)
 
-    latitudes = grbs[1].latlons()[0].flatten()
-    longitudes = grbs[1].latlons()[1].flatten()
+    latitudes = grbs.message(1).latlons()[0].flatten()
+    longitudes = grbs.message(1).latlons()[1].flatten()
         
     #fill the dataframe
     for m in range(0, nbMessages):
-        message = grbs[m+1]
+        message = grbs.message(m+1)
         data = message.data()[0].flatten()
         for p in range(0, nbPoints):
             row = (m // nbParams)*nbPoints + p
