@@ -51,8 +51,23 @@ def CH1903toWGS1984(x, y):
   lng = CHtoWGSlng(x, y)
  
   return [lat, lng]
-
+def date_to_winter(date):
+    """Converts a datetime object into a string indicating which winter it refers to
+    
+    :param date: a datetime object
+    :return: a string indicating a winter (for example '1994-1995'"""
+    if(date.month > 10):
+        return str(date.year) + '-' + str(date.year + 1)
+    elif(date.month < 5):
+        return str(date.year - 1) + '-' + str(date.year)
+    else:
+        raise ValueError('A winter between May and October, really?')
 def grib_to_dataframe(grbs, nbMessages=-1):
+    """Converts a pygrib.open object into a dataframe with one row per place and time
+    
+    :param grbs: a pygrib.open object
+    :param nbMessages: the number of messages that should be processed. If no argument is passed, will process all of them
+    :return: a pandas dataframe containting the data. Each row contains every parameter for one set of coordinates and date"""
     import pandas as pd
     #number of messages
     if(nbMessages < 0):
