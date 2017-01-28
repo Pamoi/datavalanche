@@ -51,17 +51,28 @@ def CH1903toWGS1984(x, y):
   lng = CHtoWGSlng(x, y)
  
   return [lat, lng]
+def find_avalanche(avalanche_data, community, date, date_column='date', community_column='community'):
+    """Check in the provided data if there was an avalanche at the given time in the given community
+    
+    :param avalanche_data: data about avalanche, should be a Pandas dataframe containing the community 
+    in which the avalanche occurred in a string column called community_column and the date in a column
+    called date_colum, which should be of any type having a .timestamp() method
+    :param community_column: the name of the column in avalanche_data containing the community
+    :param community: the name of the community for which we want to know whether an avalanche occurred
+    :param date_column: the name of the column in avalanche_date containing the date
+    :param date: the date at which we want to know whether an avalanche occurred, should be any type with
+    a .timestamp() method
+    :return: a Boolean indicating whether an avalanche occurred"""
+    return avalanche_data[(avalanche_data[community_column] == community) & (avalanche_data[date_column].map(lambda x: x.timestamp()) == date.timestamp())].size > 0
 def date_to_winter(date):
     """Converts a datetime object into a string indicating which winter it refers to
     
     :param date: a datetime object
     :return: a string indicating a winter (for example '1994-1995'"""
-    if(date.month > 10):
+    if(date.month > 6):
         return str(date.year) + '-' + str(date.year + 1)
-    elif(date.month < 5):
-        return str(date.year - 1) + '-' + str(date.year)
     else:
-        raise ValueError('A winter between May and October, really?')
+        return str(date.year - 1) + '-' + str(date.year)
 def grib_to_dataframe(grbs, nbMessages=-1):
     """Converts a pygrib.open object into a dataframe with one row per place and time
     
