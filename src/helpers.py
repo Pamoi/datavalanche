@@ -137,6 +137,7 @@ def addMarker(avalanches_per_community, the_map, n_marker=10):
     most = avalanches_per_community.sort_values(by='count', ascending=False).head(n_marker)
     for index, row in most.iterrows():
         link = 'https://maps3d.io/viewer/3d?ne%5Blat%5D='+str(row['lat']+0.07)+'&ne%5Blng%5D='+str(row['lon']+0.07)+'&sw%5Blat%5D='+str(row['lat']-0.07)+'&sw%5Blng%5D='+str(row['lon']-0.07)
+        link = 'https://map.geo.admin.ch/?topic=ech&lang=en&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.swisstopo.swissimage-product,ch.swisstopo.hangneigung-ueber_30&layers_visibility=false,false,false,false,true,false&layers_timestamp=18641231,,,,,&lon='+str(row['lon'])+'&lat='+str(row['lat'])+'&elevation=7732&heading=14.676&pitch=-40.405&catalogNodes=457,477,485,491,508&layers_opacity=1,1,1,1,1,0.4'
         count = str(int(row['count']))
         html="""
         </p>
