@@ -8,11 +8,12 @@ import os.path
 
 files = []
 for i in range(0, 359):
-    path = './data/grib_batch_1/avalanche'+str(i)+'.grb'
+    path = './avalanche'+str(i)+'.grb'
     if(os.path.isfile(path)):
         files.append(path)
 
 def f(file):
+	print(file)
 	return pre_processing(helpers.grib_to_dataframe(pygrib.open(file)))
 
 def temp_conv(x):
@@ -53,7 +54,7 @@ if __name__ == '__main__':
 		for i in range(1, len(dfs)):
 			meteo_data = meteo_data.append(dfs[i])
 		meteo_data = meteo_data.set_index([list(range(0, meteo_data.shape[0]))])
-		meteo_data.to_pickle('./data/meteo_data.pkl')
+		meteo_data.to_pickle('./meteo_data.pkl')
 
 
 
