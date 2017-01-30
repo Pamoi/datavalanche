@@ -2,14 +2,11 @@
 
 ## Abstract
 
-The goal of our project is to highlight the causes of avalanches which kill around 30 people per year in Switzerland. To do so we plan to use public data on mortal avalanche accidents available on the Schnee- und Lawinenforschung's website.
+The goal of our project is to highlight the causes of avalanches which kill around 30 people per year in Switzerland. We use a public data on mortal avalanche accidents available on the Schnee- und Lawinenforschung's website: http://www.slf.ch/praevention/lawinenunfaelle/unfaelle_langj/index_EN.
 
-The next step would be to join this data with meteo data from the few days preceding an accident as the weather plays a major role in the formation of fragile snow layers.
+We also use weather data from the few days preceding an accident as the weather plays a major role in the formation of fragile snow layers. For this we use the data available at: http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/
 
-Once the data is collected and pre-processed the project could follow two directions:
-
-- Apply machine learning techniques in order to improve avalanche risk prediction
-- Build an interactive visualisation of our data to sensitize people to avalanche risk
+Those datasets allow us to explore the different factors involved in avalanches with different visualizations.  
 
 ## Data description
 
@@ -17,20 +14,23 @@ Links to data sources are in the Links and references section.
 
 - The avalanche data from the Swiss Avalanche Foundation contains entries for every fatal avalanche in the last 20 years (359 avalanches). It contains the date, location, starting point, elevation, activity (e.g. off-piste skiing), victims, and danger-level that day.
 - There is also avalanche data from data-avalanche.org in a similar format.
-- Daily meteo data from ECMWF in GRIB format.
-- The might be some meteo data on http://data.geo.admin.ch/ but it is not very clear what is available. It may also be possble to obtain some data from MeteoSwiss.
+- Daily weather data from ECMWF in GRIB format.
+- The might be some weather data on http://data.geo.admin.ch/ but it is not very clear what is available. It may also be possible to obtain some data from weatherSwiss.
 
-## Feasibility and Risks
+## Problems and Solutions
 
-Meteo data seems a bit challenging to obtain and process. In case this part should not work we can still work on useful visualisation with the already available information such as location, altitude, orientation, avalanche risk, time of day, date. However the machine learning approach would be compromised as we cannot reliably predict avalanches without taking meteo into account. Nevertheless less fine grained data could be easier to find and process but would only give an estimation of the total amount of snow. Finally not using meteo data could allow us to use avalanche data from multiple sources as we will have more time to combine it.
+Crawling the data for both weather and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `pre_processing.py` allows the querying of the weather data, this was rather time consuming since it was using a special librairy and data format.
+Once this was done we regrouped everything in the `datavalanche.ipynb` notebook and proceeded to do some exploratory data analysis to later produce different visualizations. This includes different plots of weather data, avalanches data and 2 different interactive maps.
+
+Finally we created a HTML webpage containing the main findings:
+ http://htmlpreview.github.io/?https://github.com/Pamoi/datavalanche/blob/master/src/web/index.html 
 
 ## Deliverables
 
-Depending on the direction we take the project's outcome would take different shapes:
+- The `datavalanche.ipynb` with the different visualizations. 
 
-- If we obtain substantial results with machine learning we will develop a simple web portal or mobile app where a user can enter terrain observations and get an estimation of the avalanche risk.
-
-- If going for a visualisation project the outcome would be a website presenting the various causes of avalanches illustrated by data visualisation to sensitize users to snow dangers.
+- Am homemade fancy HTML webpage with nice graphs and visualizations showing the main discoveries of our research:
+ http://htmlpreview.github.io/?https://github.com/Pamoi/datavalanche/blob/master/src/web/index.html
 
 ## Timeplan
 
@@ -40,8 +40,7 @@ These are the main milestones that we want to achieve.
 2. Gather avalanche data from  www.slf.ch
 3. Prepare and clean the data
 4. Explanatory data analysis
-5. Try some ML techniques to estimate avalanche risks (Might take a while)
-6. Once suitable results are obtained, we can start on the visualization task
+5. Once suitable results are obtained, we can start on the visualization task
 
 
 We estimate between one and two weeks per task, obviously some might take longer than others.
@@ -53,13 +52,13 @@ Some links:
 
   * Avalanche data: www.slf.ch/praevention/lawinenunfaelle/index_EN
 
-  * HISTALP (meteoroligcal data for the greater alpine region): http://www.zamg.ac.at/histalp/
+  * HISTALP (weatherroligcal data for the greater alpine region): http://www.zamg.ac.at/histalp/
 
-  * Meteoswiss data page: http://www.meteosuisse.admin.ch/home/climat/passe.html
+  * weatherswiss data page: http://www.weathersuisse.admin.ch/home/climat/passe.html
 
-  * ECMWF Meteo datasets: http://apps.ecmwf.int/datasets/
+  * ECMWF weather datasets: http://apps.ecmwf.int/datasets/
 
-  * opendata.swiss page for meteo: https://opendata.swiss/en/organization/bundesamt-fur-meteorologie-und-klimatologie-meteoschweiz
+  * opendata.swiss page for weather: https://opendata.swiss/en/organization/bundesamt-fur-weatherrologie-und-klimatologie-weatherschweiz
 
 Some papers:
 

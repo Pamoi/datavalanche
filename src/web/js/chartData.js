@@ -1,4 +1,4 @@
-// Avalanche vitcims per winter chart
+// Avalanche victims per winter chart
 var ctx = $("#deathChart");
 var myChart = new Chart(ctx, {
   type: 'bar',
@@ -8,7 +8,7 @@ var myChart = new Chart(ctx, {
     '2008/09', '2009/10', '2010/11', '2011/12', '2012/13', '2013/14',
     '2014/15', '2015/16'],
     datasets: [{
-      label: 'Avalanche vitcims per winter',
+      label: 'Avalanche victims per winter',
       data: [24, 14, 36, 18, 32, 24, 20, 11, 26, 24, 21, 11, 28, 29, 26, 19, 22, 22, 33, 21],
     }]
   },
