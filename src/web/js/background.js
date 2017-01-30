@@ -1,43 +1,49 @@
 $(function() {
-  console.log('Loading');
-
-  var windowHeight = $(window).height();
 
   var bgs = $('.bg');
-  for (var i = 0; i < bgs.length; i++) {
-    $(bgs[i]).css({
-      top: (i * windowHeight) + 'px',
-      height: windowHeight + 'px',
-    });
+  var slides = $('.slide-container');
+
+  function setSlideSize() {
+    var windowHeight = $(window).height();
+
+    for (var i = 0; i < bgs.length; i++) {
+      $(bgs[i]).css({
+        top: (i * windowHeight) + 'px',
+        height: windowHeight + 'px',
+      });
+    }
+
+    var paddingHeight = $(slides[0]).css('padding-top').replace('px', '');
+    for (var i = 0; i < slides.length; i++) {
+      $(slides[i]).css({
+        height: (windowHeight - paddingHeight) + 'px',
+      });
+    }
   }
 
-  var texts = $('.slide-container');
-  var paddingHeight = $(texts[0]).css('padding-top').replace('px', '');
-  for (var i = 0; i < texts.length; i++) {
-    $(texts[i]).css({
-      height: (windowHeight - paddingHeight) + 'px',
-    });
-  }
+  setSlideSize();
+  $(window).on('resize', setSlideSize);
 
   var currentSlideIndex = 0;
+  var slideCount = slides.length;
 
   function nextSlide() {
-    if (currentSlideIndex < texts.length - 1) {
+    if (currentSlideIndex < slideCount - 1) {
       currentSlideIndex += 1;
-      $(texts[currentSlideIndex]).animatescroll({scrollSpeed:300});
+      $(slides[currentSlideIndex]).animatescroll({scrollSpeed:300});
     }
   }
 
   function previousSlide() {
     if (currentSlideIndex > 0) {
       currentSlideIndex -= 1;
-      $(texts[currentSlideIndex]).animatescroll({scrollSpeed:300});
+      $(slides[currentSlideIndex]).animatescroll({scrollSpeed:300});
     }
   }
 
   function firstSlide() {
     currentSlideIndex = 0;
-    $(texts[currentSlideIndex]).animatescroll({scrollSpeed:300});
+    $(slides[currentSlideIndex]).animatescroll({scrollSpeed:300});
   }
 
   // Assign function to buttons
