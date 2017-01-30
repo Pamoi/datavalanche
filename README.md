@@ -19,7 +19,7 @@ Links to data sources are in the Links and references section.
 
 ## Problems and Solutions
 
-Crawling the data for both weather and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `pre_processing.py` allows the querying of the weather data, this was rather time consuming since it was using a special librairy and data format.
+Crawling the data for both weather and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `all_request.py` allows the querying of the weather data, this was very time consuming (several days to get the whole dataset) since it was using a special library and data format. The python script: `pre_processing.py` then transformed the GRIB files into pandas dataframes. This was also quite long.
 Once this was done we regrouped everything in the `datavalanche.ipynb` notebook and proceeded to do some exploratory data analysis to later produce different visualizations. This includes different plots of weather data, avalanches data and 2 different interactive maps.
 
 Finally we created a HTML webpage containing the main findings:
