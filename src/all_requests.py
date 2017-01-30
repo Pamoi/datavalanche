@@ -4,9 +4,11 @@ from ecmwfapi import ECMWFDataServer
 import pandas as pd
 from datetime import date
 import helpers
+import os.path
 
 def parsedate(ts):
     return date.fromtimestamp(int(ts))
+
 server = ECMWFDataServer()
 data = pd.read_csv('data/avalanches.csv', parse_dates=['date_posix_ts'], date_parser=parsedate)
 params = []
@@ -14,7 +16,11 @@ for i in range(0, data.shape[0]):
 	[lat, lon] = helpers.CH1903toWGS1984(data.loc[i]['starting_zone_X'], data.loc[i]['starting_zone_Y'])
 	area = str(ceil(lat*1000)/1000)+'/'+str(floor(lon*1000)/1000)+'/'+str(floor(lat*1000)/1000)+'/'+str(ceil(lon*1000)/1000)
 	target = './data/grib/avalanche'+str(i)+'.grb'
-	params.append({'area': area, 'target': target})
+	file_exists = os.path.isfile('./data/grib/avalanche'+str(i)+'.grb')
+	for j in range(0, 11):
+		file_exists |= os.path.isfile('./data/grib_batch_'+str(j)+'/avalanche'+str(i)+'.grb')
+	if(not file_exists):
+		params.append({'area': area, 'target': target})
 
 def f(params):
     
