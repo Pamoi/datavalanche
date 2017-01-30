@@ -2,14 +2,11 @@
 
 ## Abstract
 
-The goal of our project is to highlight the causes of avalanches which kill around 30 people per year in Switzerland. To do so we plan to use public data on mortal avalanche accidents available on the Schnee- und Lawinenforschung's website.
+The goal of our project is to highlight the causes of avalanches which kill around 30 people per year in Switzerland. We use a public data on mortal avalanche accidents available on the Schnee- und Lawinenforschung's website: http://www.slf.ch/praevention/lawinenunfaelle/unfaelle_langj/index_EN.
 
-The next step would be to join this data with meteo data from the few days preceding an accident as the weather plays a major role in the formation of fragile snow layers.
+We also use meteo data from the few days preceding an accident as the weather plays a major role in the formation of fragile snow layers. For this we use the data available at: http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/
 
-Once the data is collected and pre-processed the project could follow two directions:
-
-- Apply machine learning techniques in order to improve avalanche risk prediction
-- Build an interactive visualisation of our data to sensitize people to avalanche risk
+Those datasets allow us to explore the different factors involved in avalanches with different vizualisations.  
 
 ## Data description
 
@@ -20,17 +17,15 @@ Links to data sources are in the Links and references section.
 - Daily meteo data from ECMWF in GRIB format.
 - The might be some meteo data on http://data.geo.admin.ch/ but it is not very clear what is available. It may also be possble to obtain some data from MeteoSwiss.
 
-## Feasibility and Risks
+## Problems and Solutions
 
-Meteo data seems a bit challenging to obtain and process. In case this part should not work we can still work on useful visualisation with the already available information such as location, altitude, orientation, avalanche risk, time of day, date. However the machine learning approach would be compromised as we cannot reliably predict avalanches without taking meteo into account. Nevertheless less fine grained data could be easier to find and process but would only give an estimation of the total amount of snow. Finally not using meteo data could allow us to use avalanche data from multiple sources as we will have more time to combine it.
-
+Crawling the data for both meteo and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `pre_processing.py` allows the querying of the meteo data, this was rather time consuming since it was using a special librairy and data format.
+Once this was done we regrouped everything in the `datavalanche.ipynb` notebook and proceeded to do some exploratory data analysis to later produce different vizualisations. This includes different plots of weather data, avalanches data and 2 different interactive maps.  
 ## Deliverables
 
-Depending on the direction we take the project's outcome would take different shapes:
+- The `datavalanche.ipynb` with the different vizualisations. 
 
-- If we obtain substantial results with machine learning we will develop a simple web portal or mobile app where a user can enter terrain observations and get an estimation of the avalanche risk.
-
-- If going for a visualisation project the outcome would be a website presenting the various causes of avalanches illustrated by data visualisation to sensitize users to snow dangers.
+- Am homemade fancy HTML webpage with nice graphs and vizualisations showing the main discoveries of our research 
 
 ## Timeplan
 
@@ -40,8 +35,7 @@ These are the main milestones that we want to achieve.
 2. Gather avalanche data from  www.slf.ch
 3. Prepare and clean the data
 4. Explanatory data analysis
-5. Try some ML techniques to estimate avalanche risks (Might take a while)
-6. Once suitable results are obtained, we can start on the visualization task
+5. Once suitable results are obtained, we can start on the visualization task
 
 
 We estimate between one and two weeks per task, obviously some might take longer than others.
