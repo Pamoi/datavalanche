@@ -60,7 +60,7 @@ ctx2 = $('#orientationChart');
 new Chart(ctx2, {
   data: {
     datasets: [{
-      label: 'Avalanches per orientation',
+      label: 'Mortal avalanches per orientation',
       data: [50, 28, 46, 9, 25, 16, 25, 11, 16, 1, 20, 10, 20, 19, 38, 24]
     }],
     labels: ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
@@ -69,7 +69,7 @@ new Chart(ctx2, {
   options: {
     title: {
       display: true,
-      text: 'Avalanches per orientation',
+      text: 'Mortal avalanches per orientation',
       fontSize: 20,
       fontColor: '#f6f6f6',
       fontFamily: 'Lato'
@@ -111,7 +111,7 @@ var myChart = new Chart(ctx, {
     labels: [ 500,  750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000,
        3250, 3500, 3750, 4000],
     datasets: [{
-      label: 'Histogram of avalanche altitude',
+      label: 'Histogram of mortal avalanche altitude',
       data: [ 1,  0,  0,  8, 13, 26, 65, 70, 60, 61, 22, 15,  9,  9],
     }]
   },
@@ -121,6 +121,70 @@ var myChart = new Chart(ctx, {
         title: function(items) {
           var item = items[0];
           return item.xLabel + '-' + (parseInt(item.xLabel) + 250) + ' m';
+        },
+        label: function(item, data) {
+          return 'Number of avalanches: ' + data.datasets[item.datasetIndex].data[item.index];
+        }
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontFamily: 'Lato'
+        },
+        gridLines: {
+          color: 'rgba(170, 170, 170, 0.4)'
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontFamily: 'Lato'
+        },
+        gridLines: {
+          color: 'rgba(170, 170, 170, 0.4)'
+        }
+      }]
+    },
+    elements: {
+      rectangle: {
+        backgroundColor: 'rgba(215, 215, 215, 0.7)',
+        borderColor: 'rgba(250, 250, 250, 1)',
+        borderWidth: 0
+      }
+    },
+    legend: {
+      labels: {
+        fontColor: '#f6f6f6',
+        fontSize: 20,
+        fontFamily: 'Lato',
+        fontStyle: 'bold',
+        boxWidth: 0
+      }
+    }
+  }
+});
+
+var ctx = $("#humanChart");
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['1', '2', '3', '4', '5'],
+    datasets: [{
+      label: 'Mortal avalanches per risk level',
+      data: [7, 100, 189, 15, 2],
+    }]
+  },
+  options: {
+    tooltips: {
+      callbacks: {
+        title: function(items) {
+          var item = items[0];
+          return 'Avalanche risk ' + item.xLabel;
         },
         label: function(item, data) {
           return 'Number of avalanches: ' + data.datasets[item.datasetIndex].data[item.index];
