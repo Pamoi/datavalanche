@@ -4,9 +4,9 @@
 
 The goal of our project is to highlight the causes of avalanches which kill around 30 people per year in Switzerland. We use a public data on mortal avalanche accidents available on the Schnee- und Lawinenforschung's website: http://www.slf.ch/praevention/lawinenunfaelle/unfaelle_langj/index_EN.
 
-We also use meteo data from the few days preceding an accident as the weather plays a major role in the formation of fragile snow layers. For this we use the data available at: http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/
+We also use weather data from the few days preceding an accident as the weather plays a major role in the formation of fragile snow layers. For this we use the data available at: http://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/
 
-Those datasets allow us to explore the different factors involved in avalanches with different vizualisations.  
+Those datasets allow us to explore the different factors involved in avalanches with different visualizations.  
 
 ## Data description
 
@@ -14,18 +14,21 @@ Links to data sources are in the Links and references section.
 
 - The avalanche data from the Swiss Avalanche Foundation contains entries for every fatal avalanche in the last 20 years (359 avalanches). It contains the date, location, starting point, elevation, activity (e.g. off-piste skiing), victims, and danger-level that day.
 - There is also avalanche data from data-avalanche.org in a similar format.
-- Daily meteo data from ECMWF in GRIB format.
-- The might be some meteo data on http://data.geo.admin.ch/ but it is not very clear what is available. It may also be possble to obtain some data from MeteoSwiss.
+- Daily weather data from ECMWF in GRIB format.
+- The might be some weather data on http://data.geo.admin.ch/ but it is not very clear what is available. It may also be possible to obtain some data from weatherSwiss.
 
 ## Problems and Solutions
 
-Crawling the data for both meteo and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `pre_processing.py` allows the querying of the meteo data, this was rather time consuming since it was using a special librairy and data format.
-Once this was done we regrouped everything in the `datavalanche.ipynb` notebook and proceeded to do some exploratory data analysis to later produce different vizualisations. This includes different plots of weather data, avalanches data and 2 different interactive maps.  
+Crawling the data for both weather and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `pre_processing.py` allows the querying of the weather data, this was rather time consuming since it was using a special librairy and data format.
+Once this was done we regrouped everything in the `datavalanche.ipynb` notebook and proceeded to do some exploratory data analysis to later produce different visualizations. This includes different plots of weather data, avalanches data and 2 different interactive maps.
+
+Finally we created a HTML webpage containing the main findings. 
+
 ## Deliverables
 
-- The `datavalanche.ipynb` with the different vizualisations. 
+- The `datavalanche.ipynb` with the different visualizations. 
 
-- Am homemade fancy HTML webpage with nice graphs and vizualisations showing the main discoveries of our research 
+- Am homemade fancy HTML webpage with nice graphs and visualizations showing the main discoveries of our research 
 
 ## Timeplan
 
@@ -47,13 +50,13 @@ Some links:
 
   * Avalanche data: www.slf.ch/praevention/lawinenunfaelle/index_EN
 
-  * HISTALP (meteoroligcal data for the greater alpine region): http://www.zamg.ac.at/histalp/
+  * HISTALP (weatherroligcal data for the greater alpine region): http://www.zamg.ac.at/histalp/
 
-  * Meteoswiss data page: http://www.meteosuisse.admin.ch/home/climat/passe.html
+  * weatherswiss data page: http://www.weathersuisse.admin.ch/home/climat/passe.html
 
-  * ECMWF Meteo datasets: http://apps.ecmwf.int/datasets/
+  * ECMWF weather datasets: http://apps.ecmwf.int/datasets/
 
-  * opendata.swiss page for meteo: https://opendata.swiss/en/organization/bundesamt-fur-meteorologie-und-klimatologie-meteoschweiz
+  * opendata.swiss page for weather: https://opendata.swiss/en/organization/bundesamt-fur-weatherrologie-und-klimatologie-weatherschweiz
 
 Some papers:
 
