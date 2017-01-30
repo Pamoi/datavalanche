@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+
+  <img src="img/bg1.jpg" class="bg" />
+  <img src="img/bg2.jpg" class="bg" />
+  <img src="img/bg3.jpg" class="bg" />
+  <img src="img/bg4.jpg" class="bg" />
+  <img src="img/bg5.jpg" class="bg" />
+  <img src="img/bg6.jpg" class="bg" />
+
+
+  <!-- Introduction -->
+  <div id="intro" class="slide-container">
+    <div style="display:inline-block;">
+      <div class="left-side title">
+        <span class="medium">During the last 20 years,</span><br/>
+        <span class="very-big">461</span><span class="medium"> persons lost their lives in an
+        </span><span class="very-big">avalanche </span><span class="medium">accident in</span>
+        <span class="big"> Switzerland.</span>
+        <p class="medium subtitle">
+          Learn what are the important factors in the formation of avalanches through the deadly avalanche data from
+          the last 20 years in Switzerland coupled with meteorological data.
+        </p>
+      </div>
+
+      <div class="right-side graph">
+        <canvas id="deathChart" width="800" height="600"></canvas>
+      </div>
+    </div>
+
+    <div class="chev down-link">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
+
+  <!-- Orientation -->
+  <div id="orientation" class="slide-container">
+    <div style="display:inline-block;">
+      <div class="right-side title">
+        <span class="medium">Avalanches are caused by an instability in the snowpack. This happens more often on</span>
+        <span class="very-big"> north facing </span><span class="medium">slopes which are never warmed by the sun.
+        </span><br/><br/>
+        <span class="medium">However on<span class="big"> sunny spring </span> days the molten snow can also cause
+          wet snow avalanches.</span>
+      </div>
+
+      <div class="left-side">
+        <canvas id="orientationChart" width="800" height="750"></canvas>
+      </div>
+    </div>
+
+    <div class="chev down-link">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
+
+  <!-- wind -->
+  <div id="wind" class="slide-container">
+    <div style="display:inline-block;">
+      <div class="left-side title">
+        <span class="medium">The</span><span class="very-big"> wind </span>
+        <span class="medium">carries the snow and forms a compact layer that does not </span>
+          <span class="big"> solidarize </span><span class="medium"> well with the old snow.
+        </span><br/>
+        <span class="big">Avalanches </span>
+        <span class="medium">are often triggered in those fragile layers called </span>
+        <span class="big"> wind plates.</span>
+      </div>
+
+      <div class="right-side">
+        <canvas id="snowChart" width="800" height="750"></canvas>
+      </div>
+    </div>
+
+    <div class="chev down-link">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
+
+  <!-- fresh snow -->
+  <div id="snow" class="slide-container">
+    <div style="display:inline-block;">
+      <div class="right-side title">
+        <span class="very-big">Fresh snow </span><span class="medium">needs time to solidarize with the old snowpack.
+        The </span><span class="big"> first days </span><span class="medium">after a </span>
+        <span class="big"> snowfall </span><span class="medium">are especially</span><span class="big"> dangerous.</span>
+      </div>
+
+      <div class="left-side">
+        <canvas id="snowChart" width="800" height="750"></canvas>
+      </div>
+    </div>
+
+    <div class="chev down-link">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
+
+  <!-- altitude -->
+  <div id="altitude" class="slide-container">
+    <div style="display:inline-block;">
+      <div class="left-side title">
+        <span class="medium">The avalanche risk increases with </span><span class="very-big"> altitude </span>
+        <span class="medium">as there is more<span class="big"> snow </span>and<span class="big"> wind. <br/></span></span>
+        <br/>
+        <span class="medium">Tours at altitudes higher than 3000 meters are less frequent which is why the number
+        of avalanches decreases.</span>
+      </div>
+
+      <div class="right-side">
+        <canvas id="altitudeChart" width="800" height="700"></canvas>
+      </div>
+    </div>
+
+    <div class="chev down-link">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
+
+  <!-- human factor -->
+  <div id="human" class="slide-container">
+    <div style="display:inline-block;">
+      <div class="right-side title">
+        <span class="medium">Finally, </span><span class="very-big"> human decisions </span>
+        <span class="medium">play a key role in many avalanche accidents.<br/>
+        Being part of a</span><span class="big"> group </span>
+        <span class="medium">can give a false impression of security.<br/><br/>
+        One third of the mortal avalanches happened on a <span class="big"> limited risk </span>day.</span>
+      </div>
+
+      <div class="left-side">
+        <canvas id="humanChart" width="700" height="600"></canvas>
+      </div>
+    </div>
+
+    <div class="chev top-link">
+      <span class="chevron"></span>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+  <script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+  <script src="js/animatescroll.min.js"></script>
+  <script src="js/chartData.js"></script>
+  <script src="js/background.js"></script>
+</body>
+</html>
