@@ -232,3 +232,70 @@ var myChart = new Chart(ctx, {
     }
   }
 });
+
+// Wind chart
+var ctx = $("#windChart");
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24],
+    datasets: [{
+      label: 'Histogram of max wind speed during the 3 days before an avalanche',
+      data: [ 0.0        ,  0.0        ,  0.02134146,  0.06402439,  0.20731707,
+        0.32012195,  0.23170732,  0.08841463,  0.04573171,  0.01219512,
+        0.00609756,  0.00304878],
+        backgroundColor: 'rgba(215, 215, 215, 0.7)',
+    },{
+      label: 'Histogram of daily mean wind speed at avalanche locations',
+      data: [  0.00000000e+00,   1.25272082e-02,   6.09091739e-01,
+         3.62482305e-01,   1.57465333e-02,   1.52213952e-04,
+         0.00000000e+00,   0.00000000e+00,   0.00000000e+00,
+         0.00000000e+00,   0.00000000e+00,   0.00000000e+00],
+      backgroundColor: 'rgba(20, 160, 230, 0.6)',
+    }]
+  },
+  options: {
+    tooltips: {
+      callbacks: {
+        title: function(items) {
+          var item = items[0];
+          return item.xLabel + '-' + (parseInt(item.xLabel) + 250) + ' m';
+        },
+        label: function(item, data) {
+          return 'Number of avalanches: ' + data.datasets[item.datasetIndex].data[item.index];
+        }
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontFamily: 'Lato'
+        },
+        gridLines: {
+          color: 'rgba(170, 170, 170, 0.4)'
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontFamily: 'Lato'
+        },
+        gridLines: {
+          color: 'rgba(170, 170, 170, 0.4)'
+        }
+      }]
+    },
+    legend: {
+      labels: {
+        fontColor: '#f6f6f6',
+        fontSize: 20,
+        fontFamily: 'Lato',
+        fontStyle: 'bold',
+      }
+    }
+  }
+});
