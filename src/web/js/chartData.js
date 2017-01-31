@@ -259,10 +259,10 @@ var myChart = new Chart(ctx, {
       callbacks: {
         title: function(items) {
           var item = items[0];
-          return item.xLabel + '-' + (parseInt(item.xLabel) + 250) + ' m';
+          return item.xLabel + '-' + (parseInt(item.xLabel) + 2) + ' km/h';
         },
         label: function(item, data) {
-          return 'Number of avalanches: ' + data.datasets[item.datasetIndex].data[item.index];
+          return '';
         }
       }
     },

@@ -80,6 +80,11 @@ body {
   }
 }
 
+.heatmap {
+  height: 100%;
+  width: 100%;
+}
+
 /* Chevrons */
 .chev {
   position: absolute;
