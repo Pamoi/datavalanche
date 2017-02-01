@@ -23,6 +23,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Number of victims',
+          display: true
         }
       }],
       xAxes: [{
@@ -33,6 +41,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Year',
+          display: true
         }
       }]
     },
@@ -137,6 +153,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Number of avalanches',
+          display: true
         }
       }],
       xAxes: [{
@@ -147,6 +171,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Altitude [m]',
+          display: true
         }
       }]
     },
@@ -201,6 +233,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Number of avalanches',
+          display: true
         }
       }],
       xAxes: [{
@@ -211,6 +251,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Avalanche risk level (higher is more risky)',
+          display: true
         }
       }]
     },
@@ -276,6 +324,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Normalized histogram value',
+          display: true
         }
       }],
       xAxes: [{
@@ -286,6 +342,14 @@ var myChart = new Chart(ctx, {
         },
         gridLines: {
           color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Wind speed [km/h]',
+          display: true
         }
       }]
     },
