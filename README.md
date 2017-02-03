@@ -25,12 +25,14 @@ Once this was done we regrouped everything in the `datavalanche.ipynb` notebook 
 Finally we created a webpage to sensitize people to the different avalanche causes:
  http://datavalanche.mgirod.ch
 
+ The heatmap is also available on the web:  http://datavalanche.mgirod.ch/heatmap.html.
+
 ## Deliverables
 
 - The `src/datavalanche.ipynb` file with the different visualizations. All the helper scripts that we used to obtian the data as well as the scraped data itself are in the repository.
 
 - A homemade fancy HTML webpage with nice graphs and visualizations showing the main discoveries of our research:
- http://datavalanche.mgirod.ch
+ http://datavalanche.mgirod.ch and the heatmap: http://datavalanche.mgirod.ch/heatmap.html.
 
 ## Timeplan
 
