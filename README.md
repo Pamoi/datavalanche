@@ -19,22 +19,22 @@ Links to data sources are in the Links and references section.
 
 ## Problems and Solutions
 
-Crawling the data for both weather and avalanches is the first difficulty encountered. For this reason different scripts are implemented on in javascript: `avalanche_data_processor.js` which allow us to get the html table as a pandas dataframe. The python script: `all_request.py` allows the querying of the weather data, this was very time consuming (several days to get the whole dataset) since it was using a special library and data format. The python script: `pre_processing.py` then transformed the GRIB files into pandas dataframes. This was also quite long.
+Crawling the data for both weather and avalanches was the first and major difficulty encountered. The avalanche data on the SLF's website is generated with javascript which revented us to use an HTML parser. Instead we copied the page's JS into a file and used javascript to export the data in a CSV file. This is done in `avalanche_data_processor.js`. The raw weather data was also challenging as it is in a weather specific format called `grib` and simply installing the required library to decode it was challenging. The python script `all_request.py` handles the querying of the weather data on the ECMWF API. This part was very time consuming (several days to get the whole dataset). The python script `pre_processing.py` then transformed the GRIB files into pandas dataframes. This was also quite long.
 Once this was done we regrouped everything in the `datavalanche.ipynb` notebook and proceeded to do some exploratory data analysis to later produce different visualizations. This includes different plots of weather data, avalanches data and 2 different interactive maps.
 
-Finally we created a HTML webpage containing the main findings:
- http://htmlpreview.github.io/?https://github.com/Pamoi/datavalanche/blob/master/src/web/index.html 
+Finally we created a webpage to sensitize people to the different avalanche causes:
+ http://datavalanche.mgirod.ch
 
 ## Deliverables
 
-- The `datavalanche.ipynb` with the different visualizations. 
+- The `src/datavalanche.ipynb` file with the different visualizations. All the helper scripts that we used to obtian the data as well as the scraped data itself are in the repository.
 
-- Am homemade fancy HTML webpage with nice graphs and visualizations showing the main discoveries of our research:
- http://htmlpreview.github.io/?https://github.com/Pamoi/datavalanche/blob/master/src/web/index.html
+- A homemade fancy HTML webpage with nice graphs and visualizations showing the main discoveries of our research:
+ http://datavalanche.mgirod.ch
 
 ## Timeplan
 
-These are the main milestones that we want to achieve. 
+These are the main milestones that we want to achieve.
 
 1. Gather meteorological data from ECMWF in regions of interests
 2. Gather avalanche data from  www.slf.ch
