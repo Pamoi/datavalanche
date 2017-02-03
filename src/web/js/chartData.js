@@ -363,3 +363,79 @@ var myChart = new Chart(ctx, {
     }
   }
 });
+
+// Snow chart
+var ctx = $("#snowChart");
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [0.0,  0.02 ,  0.04 ,  0.06 ,  0.08 ,  0.10  ,  0.12 ,  0.14 ,
+         0.16 ],
+    datasets: [{
+      label: 'Histogram of snowfalls during the three days preceding an avalanche',
+      data: [140,  84,  57,  20,  12,   4,   6,   5],
+      backgroundColor: 'rgba(215, 215, 215, 0.7)',
+    }]
+  },
+  options: {
+    tooltips: {
+      callbacks: {
+        title: function(items) {
+          var item = items[0];
+          return item.xLabel + '-' + (parseFloat(item.xLabel) + 0.02) + ' m';
+        },
+        label: function(item, data) {
+          return 'Number of avalanches: ' + data.datasets[item.datasetIndex].data[item.index];
+        }
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontFamily: 'Lato'
+        },
+        gridLines: {
+          color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: 'Number of avalanches',
+          display: true
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontFamily: 'Lato'
+        },
+        gridLines: {
+          color: 'rgba(170, 170, 170, 0.4)'
+        },
+        scaleLabel: {
+          fontColor: '#f6f6f6',
+          fontSize: 18,
+          fontStyle: 'bold',
+          fontFamily: 'Lato',
+          labelString: '3 day snowfall [m]',
+          display: true
+        }
+      }]
+    },
+    legend: {
+      labels: {
+        fontColor: '#f6f6f6',
+        fontSize: 20,
+        fontFamily: 'Lato',
+        fontStyle: 'bold',
+        boxWidth: 0
+      }
+    }
+  }
+});
